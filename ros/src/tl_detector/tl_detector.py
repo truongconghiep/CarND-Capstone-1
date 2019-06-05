@@ -10,6 +10,7 @@ from light_classification.tl_classifier import TLClassifier
 import tf
 import cv2
 import yaml
+from scipy.spatial import KDTree
 
 STATE_COUNT_THRESHOLD = 3
 
@@ -19,6 +20,7 @@ class TLDetector(object):
 
         self.pose = None
         self.waypoints = None
+        self.waypoint_tree = None
         self.camera_image = None
         self.lights = []
 
@@ -56,6 +58,8 @@ class TLDetector(object):
 
     def waypoints_cb(self, waypoints):
         self.waypoints = waypoints
+        waypoints_2d = [[waypoint.pose.pose.position.x, waypoint.pose.pose.position.y] for waypoint in waypoints.waypoints]
+        self.waypoint_tree = KDTree(waypoints_2d)
 
     def traffic_cb(self, msg):
         self.lights = msg.lights
@@ -71,6 +75,8 @@ class TLDetector(object):
         self.has_image = True
         self.camera_image = msg
         light_wp, state = self.process_traffic_lights()
+        rospy.logwarn("idx {0}".format(light_wp))
+        rospy.logwarn("state {0}".format(state))
 
         '''
         Publish upcoming red lights at camera frequency.
@@ -90,7 +96,7 @@ class TLDetector(object):
             self.upcoming_red_light_pub.publish(Int32(self.last_wp))
         self.state_count += 1
 
-    def get_closest_waypoint(self, pose):
+    def get_closest_waypoint(self, x, y):
         """Identifies the closest path waypoint to the given position
             https://en.wikipedia.org/wiki/Closest_pair_of_points_problem
         Args:
@@ -115,6 +121,7 @@ class TLDetector(object):
 
         """
         # For testing, just return the light state
+        
         return light.state
 
 
@@ -158,6 +165,8 @@ class TLDetector(object):
         
         if closest_light:
             state = self.get_light_state(closest_light)
+            #rospy.logwarn("idx {0}".format(line_wp_idx))
+            #rospy.logwarn("state {0}".format(state))
             return line_wp_idx, state
 
         return -1, TrafficLight.UNKNOWN
