@@ -4,7 +4,7 @@
 Hiep Truong Cong
 ---
 
-![Screenshot](imgs/Udacity_SelfDrivingCar.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/blob/master/imgs/Udacity_SelfDrivingCar.png)
 
 
 This is the final project of the self-driving car nanodegree, where a system intergration is implemented for an autonomous vehicle to drive autonomously around a test track.
