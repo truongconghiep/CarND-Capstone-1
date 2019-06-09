@@ -3,7 +3,9 @@
 
 Hiep Truong Cong
 ---
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/Udacity_SelfDrivingCar.png)
+
+![Screenshot](imgs/Udacity_SelfDrivingCar.png)
+
 
 This is the final project of the self-driving car nanodegree, where a system intergration is implemented for an autonomous vehicle to drive autonomously around a test track.
 
@@ -17,11 +19,12 @@ Team Members
 
 The software consists of three sub-systems: Perception, Planning and Control. These there sub-systems communicate with each other by using ROS nodes and topics
 
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/system_architecture.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/blob/master/imgs/system_architecture.png)
+
 
 ### Planning
 
-This sub-system is responsible for generating waypoints ahead the vehicle. The main ROS node of this sub-system is "Waypoint Update Node", which is responsible for updating the target velocity of each waypoint based on traffic light and obstacle detection dat.
+This sub-system is responsible for generating waypoints ahead the vehicle. The main ROS node of this sub-system is "Waypoint Update Node", which is responsible for updating the target velocity of each waypoint based on traffic light and obstacle detection data.
 
 ![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/waypoint-updater-ros-graph.png)
 
