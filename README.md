@@ -3,7 +3,7 @@
 
 Hiep Truong Cong
 ---
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/Udacity_SelfDrivingCar.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/Udacity_SelfDrivingCar.png)
 
 This is the final project of the self-driving car nanodegree, where a system intergration is implemented for an autonomous vehicle to drive autonomously around a test track.
 
@@ -17,25 +17,25 @@ Team Members
 
 The software consists of three sub-systems: Perception, Planning and Control. These there sub-systems communicate with each other by using ROS nodes and topics
 
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/system_architecture.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/system_architecture.png)
 
 ### Planning
 
 This sub-system is responsible for generating waypoints ahead the vehicle. The main ROS node of this sub-system is "Waypoint Update Node", which is responsible for updating the target velocity of each waypoint based on traffic light and obstacle detection dat.
 
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/waypoint-updater-ros-graph.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/waypoint-updater-ros-graph.png)
 
 ### Control
 
 This sub-system controls the drive-by-wire system through adjusting the throttle, brake and steering angles.The main ROS node of this sub-system is "DBW Node", which publishs throttle, brake, and steering commands to the *throttle_cmd*, *brake_cmd*, *steering_cmd* topics.
 
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/dbw-node-ros-graph.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/dbw-node-ros-graph.png)
 
 ### Perception
 
 This sub-system detects traffic lights. The traffic light detection is implemented by using OpenCV for thresholding and detecting the traffic lights colors. The main ROS node of this sub-system is "Traffic Light Detection Node"
 
-![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/tl-detector-ros-graph.png)
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/tree/master/imgs/tl-detector-ros-graph.png)
 
 
 ---
