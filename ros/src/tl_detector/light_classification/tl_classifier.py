@@ -34,18 +34,18 @@ class TLClassifier(object):
         blur_img_yellow = cv2.GaussianBlur(converted_img_yellow,(15,15),0)
         circles_yellow = cv2.HoughCircles(blur_img_yellow,cv2.HOUGH_GRADIENT,0.5,41, param1=70,param2=30,minRadius=5,maxRadius=150)
 
-        Green1 = cv2.inRange(HsvImg, np.array([30, 59, 50]) , np.array([79, 158, 171]))
-        Green2 = cv2.inRange(HsvImg, np.array([0, 255, 0]) , np.array([229, 255, 204]))
-        converted_img_green = cv2.addWeighted(Green1, 1.0, Green2, 1.0, 0.0)
-        blur_img_green = cv2.GaussianBlur(converted_img_green,(15,15),0)
-        circles_green = cv2.HoughCircles(blur_img_green,cv2.HOUGH_GRADIENT,0.5,41, param1=70,param2=30,minRadius=5,maxRadius=150)
+        #Green1 = cv2.inRange(HsvImg, np.array([30, 59, 50]) , np.array([79, 158, 171]))
+        #Green2 = cv2.inRange(HsvImg, np.array([0, 255, 0]) , np.array([229, 255, 204]))
+        #converted_img_green = cv2.addWeighted(Green1, 1.0, Green2, 1.0, 0.0)
+        #blur_img_green = cv2.GaussianBlur(converted_img_green,(15,15),0)
+        #circles_green = cv2.HoughCircles(blur_img_green,cv2.HOUGH_GRADIENT,0.5,41, param1=70,param2=30,minRadius=5,maxRadius=150)
         
         if circles is not None:
             return TrafficLight.RED
         if circles_yellow is not None:
             return TrafficLight.YELLOW
-        if circles_green is not None:
-            return TrafficLight.GREEN
+        #if circles_green is not None:
+        #    return TrafficLight.GREEN
             #rospy.logwarn("state Yellow {0}".format(0))
 
         return result
