@@ -1,3 +1,44 @@
+# Self-driving car nanodegree - Capstone project
+---
+
+Hiep Truong Cong
+---
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/Udacity_SelfDrivingCar.png)
+
+This is the final project of the self-driving car nanodegree, where a system intergration is implemented for an autonomous vehicle to drive autonomously around a test track.
+
+Team Members
+---
+|Name|E-mail|
+| ------------- |:-------------:|
+|Hiep Truong Cong|truongconghiep@gmail.com|
+
+## System architecture
+
+The software consists of three sub-systems: Perception, Planning and Control. These there sub-systems communicate with each other by using ROS nodes and topics
+
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/system_architecture.png)
+
+### Planning
+
+This sub-system is responsible for generating waypoints ahead the vehicle. The main ROS node of this sub-system is "Waypoint Update Node", which is responsible for updating the target velocity of each waypoint based on traffic light and obstacle detection dat.
+
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/waypoint-updater-ros-graph.png)
+
+### Control
+
+This sub-system controls the drive-by-wire system through adjusting the throttle, brake and steering angles.The main ROS node of this sub-system is "DBW Node", which publishs throttle, brake, and steering commands to the *throttle_cmd*, *brake_cmd*, *steering_cmd* topics.
+
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/dbw-node-ros-graph.png)
+
+### Perception
+
+This sub-system detects traffic lights. The traffic light detection is implemented by using OpenCV for thresholding and detecting the traffic lights colors. The main ROS node of this sub-system is "Traffic Light Detection Node"
+
+![Screenshot](https://github.com/truongconghiep/CarND-Capstone-1/imgs/tl-detector-ros-graph.png)
+
+
+---
 This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction [here](https://classroom.udacity.com/nanodegrees/nd013/parts/6047fe34-d93c-4f50-8336-b70ef10cb4b2/modules/e1a23b06-329a-4684-a717-ad476f0d8dff/lessons/462c933d-9f24-42d3-8bdc-a08a5fc866e4/concepts/5ab4b122-83e6-436d-850f-9f4d26627fd9).
 
 Please use **one** of the two installation options, either native **or** docker installation.
